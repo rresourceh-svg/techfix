@@ -1,0 +1,546 @@
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f9;
+  color: #1b263b;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.hero-overlay {
+  background-color: #1b263bc0;
+  padding: 80px 20px;
+  border-radius: 8px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 12px 24px;
+  margin: 0 10px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.primary {
+  background-color: #1b263b;
+  color: white;
+}
+
+.secondary {
+  background-color: #e6ebf5;
+  color: #1b263b;
+}
+
+/* SECTIONS */
+.home-services,
+.home-cta {
+  padding: 60px 20px;
+  text-align: center;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+.success-message {
+  color: green;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.error-message {
+  color: red;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.service-card {
+  background-color: #e6ebf5;
+  padding: 25px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card h3 {
+  margin-bottom: 15px;
+  color: #1b263b;
+}
+/* HEADER */
+/* HEADER */
+.header {
+  background-color: #1b263b; /* navy blue matching logo */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+/* Navbar container */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  height: 50px;
+  width: auto;
+  border-radius: 50%; /* optional for circular logo */
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white; /* contrast with navy background */
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #25d366; /* WhatsApp green accent on hover */
+}
+
+/* Call to action button */
+.nav-cta {
+  background-color: #137236; /* green for CTA */
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Hamburger menu hidden on desktop */
+.hamburger {
+  display: none; /* show only on mobile */
+  font-size: 28px;
+  cursor: pointer;
+  color: white; /* <-- fixes visibility */
+  z-index: 1100;
+}
+
+
+/* NAV MENU */
+.nav-menu {
+  display: flex;
+}
+
+/* MOBILE STYLES */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color:  #1b263b;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+/* CONTACT PAGE */
+.contact-page {
+  padding: 80px 20px;
+  background-color: #f2f4f8;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #e6ebf5;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contact-container h1 {
+  margin-bottom: 10px;
+  color: #1b263b;
+}
+
+.contact-container p {
+  margin-bottom: 30px;
+  color: #555;
+}
+
+/* FORM */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1b263b;
+}
+
+.form-btn {
+  padding: 14px;
+  background-color: #1b263b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-btn:hover {
+  background-color: #0d1b2a;
+}
+.success-message {
+  color: green;
+  margin-top: 15px;
+  font-weight: 500;
+}
+
+.error-message {
+  color: red;
+  margin-top: 15px;
+  font-weight: 500;
+}
+.whatsapp-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #137236;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  transition: transform 0.2s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}
+@media (max-width: 768px) {
+  .whatsapp-button {
+    padding: 18px 24px;
+    font-size: 16px;
+  }
+}
+.form-subtext {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+}
+.service-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+.testimonials {
+  padding: 80px 20px;
+  text-align: center;
+}
+.testimonials h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #1b263b;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.testimonial-card {
+  background-color: #e6ebf5;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.footer {
+  background-color: #1b263b;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer a {
+  color: #1eac52;
+  text-decoration: none;
+  font-weight: bold;
+}
+/* ================= ABOUT PAGE ================= */
+.about-page {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;         /* center the container */
+  color: #1b263b;
+}
+
+.about-page h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;      /* keep title centered */
+}
+
+.about-page p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: left;        /* left-align for readability */
+}
+
+.about-page ul {
+  list-style-type: disc;
+  padding-left: 40px;      /* proper indentation for bullets */
+  text-align: left;        /* keep bullets readable */
+  margin-bottom: 20px;
+}
+
+.google-map-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.google-map-section h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #1b263b;
+}
+
+.google-map-container {
+  width: 90vw; /* 90% of viewport width */
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.google-map-container iframe {
+  width: 100%;
+  height: 450px; /* adjust as needed */
+  border: 0;
+}
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap; /* allow buttons to wrap if needed */
+  justify-content: center;
+  gap: 15px; /* space between buttons */
+  margin-top: 20px;
+}
+
+.hero-buttons .btn {
+  padding: 12px 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  flex: 1 1 auto; /* grow/shrink as needed */
+  min-width: 140px; /* ensures button is never too small */
+}
+
+.btn-whatsapp {
+  background-color: #137236;
+}
+
+.btn-email {
+  background-color: #640000;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px; right: 10px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px; height: 30px;
+  cursor: pointer;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/* Optional: stack buttons on very small screens (<360px) */
+@media (max-width: 360px) {
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+/* ================= SERVICES PAGE ================= */
+.services-page {
+  padding: 60px 20px;
+  text-align: center; /* center the heading and paragraph */
+  color: #1b263b;
+}
+
+.services-page h1 {
+  font-size: 36px;       /* bigger and clean */
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.services-page p {
+  font-size: 18px;
+  margin-bottom: 40px;
+  color: #555;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-items: center; /* centers all cards inside the grid */
+  margin-top: 40px;
+}
+
+/* Service Card Adjustments */
+.service-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  display: flex;
+  flex-direction: column;   /* stack icon, title, description vertically */
+  align-items: center;      /* center content horizontally */
+  text-align: center;       /* center text */
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card img {
+  width: 60px;              /* adjust icon size */
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #1b263b;
+  font-weight: 600;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+/* Doorstep service blinking highlight */
+.doorstep-highlight {
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffeb3b; /* bright yellow for attention */
+  margin: 20px 0;
+  animation: blinkText 1.5s infinite;
+  text-align: center;
+}
+
+/* Keyframes for subtle blinking */
+@keyframes blinkText {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.3; } /* fades out slightly */
+}
+.logo {
+  height: 70px; /* adjust to fit navbar */
+  width: auto;
+}
