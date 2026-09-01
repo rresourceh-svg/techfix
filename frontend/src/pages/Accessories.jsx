@@ -1,7 +1,24 @@
-import ProductCard from "../components/ProductCard";
+import AccessoryCard from "../components/AccessoryCard";
 import Reveal from "../components/Reveal";
 import CircuitLines from "../components/CircuitLines";
+import {
+  SearchCheckIcon,
+  ShieldIcon,
+  TagIcon,
+  WhatsAppIcon,
+  LocationIcon,
+  PhoneIcon,
+} from "../components/icons";
 import { accessories } from "../data/accessories";
+import { WHATSAPP_NUMBER } from "../data/servicesList";
+
+const trustPoints = [
+  { icon: SearchCheckIcon, label: "Tested before listing" },
+  { icon: ShieldIcon, label: "Genuine & reliable" },
+  { icon: TagIcon, label: "Price before order" },
+  { icon: WhatsAppIcon, label: "WhatsApp ordering" },
+  { icon: LocationIcon, label: "Lahore delivery available" },
+];
 
 function Accessories() {
   return (
@@ -24,16 +41,59 @@ function Accessories() {
         </div>
       </div>
 
-      <div className="accessories-page-body">
-        <div className="container">
-          <div className="accessories-page-grid">
-            {accessories.map((product, i) => (
-              <Reveal as="div" key={product.id} delay={(i % 3) * 90}>
-                <ProductCard product={product} />
-              </Reveal>
-            ))}
-          </div>
+      <div className="container accessories-body">
+        <Reveal className="trust-strip">
+          {trustPoints.map(({ icon: Icon, label }) => (
+            <span className="trust-strip-item" key={label}>
+              <Icon className="trust-strip-icon" />
+              {label}
+            </span>
+          ))}
+        </Reveal>
+
+        <Reveal as="div" className="section-heading accessories-section-heading">
+          <span className="eyebrow-kicker">Featured Accessories</span>
+          <h2>Quality accessories for everyday tech</h2>
+          <p>
+            Simple, reliable accessories selected by TechFix by Mubeen for
+            everyday charging, connectivity and computer needs.
+          </p>
+        </Reveal>
+
+        <div className="accessories-products-grid">
+          {accessories.map((product, i) => (
+            <Reveal as="div" key={product.id} delay={(i % 3) * 90}>
+              <AccessoryCard product={product} />
+            </Reveal>
+          ))}
         </div>
+
+        <Reveal className="services-cta-banner about-cta">
+          <div>
+            <h3>Need something specific?</h3>
+            <p>
+              Message TechFix on WhatsApp and we'll help you find the right
+              accessory for your device.
+            </p>
+          </div>
+          <div className="services-cta-buttons">
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                "Hi TechFix by Mubeen! I'm looking for an accessory — can you help me find the right one?"
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp"
+            >
+              <WhatsAppIcon className="whatsapp-icon" />
+              Chat on WhatsApp
+            </a>
+            <a href={`tel:+${WHATSAPP_NUMBER}`} className="btn btn-outline-dark">
+              <PhoneIcon className="whatsapp-icon" />
+              Call Us
+            </a>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

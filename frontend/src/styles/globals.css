@@ -996,13 +996,15 @@ img { max-width: 100%; display: block; }
 
 .about-body { max-width: var(--container); padding: 64px 24px 88px; }
 
-.about-quickstrip {
+.about-quickstrip,
+.trust-strip {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
   margin-bottom: 64px;
 }
-.about-quickstrip-item {
+.about-quickstrip-item,
+.trust-strip-item {
   display: inline-flex;
   align-items: center;
   gap: 9px;
@@ -1015,7 +1017,8 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   color: var(--text);
 }
-.about-quickstrip-icon { width: 17px; height: 17px; color: var(--blue); flex-shrink: 0; }
+.about-quickstrip-icon,
+.trust-strip-icon { width: 17px; height: 17px; color: var(--blue); flex-shrink: 0; }
 
 .about-mission {
   display: grid;
@@ -1484,28 +1487,89 @@ img { max-width: 100%; display: block; }
 
 /* =========================================================
    Accessories page
+   Mirrors the About page's layout rhythm: dark circuit-band hero,
+   then a light content area on the default surface background, using
+   the same container width, section-heading, quickstrip-pill and
+   CTA-banner patterns as About.
    ========================================================= */
-.accessories-page { color: var(--text-on-dark); }
+.accessories-page { color: var(--text); }
 
-/* Dark band header, same family as the Services/About hero bands, so the
-   page reads as one continuous surface with the dark product cards below
-   instead of a plain white page wrapped around dark cards. */
-.accessories-hero { padding: 72px 0 56px; }
-.accessories-hero-inner { max-width: 620px; }
-.accessories-hero h1 { font-size: clamp(28px, 3.4vw, 38px); margin-bottom: 14px; }
-.accessories-hero-lead { font-size: 16.5px; color: var(--text-on-dark-muted); margin: 0; max-width: 540px; }
+.accessories-hero { padding: 76px 0 64px; }
+.accessories-hero-inner { max-width: 640px; }
+.accessories-hero h1 { font-size: clamp(28px, 3.6vw, 42px); margin-bottom: 16px; }
+.accessories-hero-lead { font-size: 17.5px; color: var(--text-on-dark-muted); margin: 0; max-width: 540px; }
 
-.accessories-page-body {
-  background: var(--ink);
-  padding: 8px 0 88px;
-}
+.accessories-body { max-width: var(--container); padding: 64px 24px 88px; }
+.accessories-section-heading { max-width: 620px; }
 
-.accessories-page-grid {
+/* Product grid: fills up to 3 per row on desktop, 2 on tablet, 1 on
+   mobile — driven by auto-fit so it also holds up cleanly with just a
+   single product while more are added over time. */
+.accessories-products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+  margin-bottom: 64px;
 }
-.accessories-page .product-card { max-width: none; background: var(--panel); color: var(--text-on-dark); }
+.accessories-products-grid > .reveal { display: flex; }
+.accessories-products-grid > .reveal > .accessory-card { flex: 1; }
+
+.accessory-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 22px 22px 26px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.accessory-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient);
+  background-size: 200% 100%;
+  animation: cardTopShift 4s ease-in-out infinite;
+}
+.accessory-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(47, 143, 255, 0.18), 0 4px 14px rgba(43, 214, 232, 0.14);
+}
+
+.accessory-card-media {
+  aspect-ratio: 16 / 11;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(160deg, rgba(47, 143, 255, 0.08), rgba(43, 214, 232, 0.08));
+  border: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.accessory-card-media-icon { width: 46%; height: 46%; }
+
+.accessory-card-body { display: flex; flex-direction: column; flex-grow: 1; }
+.accessory-card-body h3 { font-size: 18px; margin-bottom: 8px; line-height: 1.3; }
+.accessory-card-desc { font-size: 14px; color: var(--text-muted); margin: 0 0 12px; line-height: 1.55; }
+.accessory-card-spec {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0 0 16px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-light);
+}
+.accessory-card-price {
+  font-family: "Sora", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue);
+  margin: auto 0 18px;
+}
+.accessory-card-btn { align-self: flex-start; }
 
 @media (max-width: 640px) {
   .accessories-hero { padding: 52px 0 44px; }

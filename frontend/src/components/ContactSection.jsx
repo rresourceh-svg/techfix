@@ -17,6 +17,7 @@ function ContactSection() {
             <div className="contact-info-row">
               <WhatsAppIcon className="icon" />
               <div>
+                <p className="label">WhatsApp</p>
                 <a href="https://wa.me/923100045017" target="_blank" rel="noopener noreferrer" className="value">
                   +92 310 0045017
                 </a>
@@ -26,6 +27,7 @@ function ContactSection() {
             <div className="contact-info-row">
               <PhoneIcon className="icon" />
               <div>
+                <p className="label">Call</p>
                 <a href="tel:+923100045017" className="value">+92 310 0045017</a>
               </div>
             </div>
@@ -33,7 +35,8 @@ function ContactSection() {
             <div className="contact-info-row">
               <LocationIcon className="icon" />
               <div>
-               <p className="value">Doorstep across Lahore</p>
+                <p className="label">Service area</p>
+                <p className="value">Doorstep across Lahore</p>
               </div>
             </div>
           </div>
