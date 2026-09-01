@@ -1,10 +1,7 @@
-function WhatsAppButton() {
-  const phoneNumber = "923100045017"; // Your WhatsApp number in international format
-  const message = encodeURIComponent("Hi TechFix, I want to book a service.");
+import { WhatsAppIcon } from "./icons";
 
-  // Correct URL
-  const whatsappURL = `https://wa.me/923100045017?text=Hi%20TechFix,%20I%20want%20to%20book%20a%20service.
-`;
+function WhatsAppButton() {
+  const whatsappURL = "https://wa.me/923100045017?text=Hi%20TechFix%2C%20I%20want%20to%20book%20a%20service.";
 
   return (
     <a
@@ -12,7 +9,9 @@ function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       className="whatsapp-button"
+      aria-label="Message TechFix on WhatsApp"
     >
+      <WhatsAppIcon className="whatsapp-icon" />
       WhatsApp
     </a>
   );

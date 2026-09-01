@@ -1,3 +1,5 @@
+const GOOGLE_MAPS_URL = "https://www.google.com/maps?cid=3092942911616954581";
+
 function TestimonialsSection() {
   const testimonials = [
     {
@@ -29,38 +31,34 @@ function TestimonialsSection() {
     },
   ];
 
-  // Helper function to render gold stars
-  const renderStars = (count) => {
-    const stars = [];
-    for (let i = 0; i < count; i++) {
-      stars.push("⭐");
-    }
-    return stars.join("");
-  };
+  const renderStars = (count) => "⭐".repeat(count);
 
   return (
     <section className="testimonials">
-      <h2>What Our Clients Say</h2>
-      <div className="testimonials-grid">
-        {testimonials.map((t, index) => (
-          <div className="testimonial-card" key={index}>
-            <p>"{t.message}"</p>
-            <h4>- {t.name}</h4>
-            <p className="stars">{renderStars(t.stars)}</p>
-          </div>
-        ))}
+      <div className="container">
+        <div className="section-heading">
+          <h2>What clients say</h2>
+          <p>Real reviews from people whose laptops and PCs we've worked on.</p>
+        </div>
+
+        <div className="testimonials-grid">
+          {testimonials.map((t, index) => (
+            <div className="testimonial-card" key={index}>
+              <p>"{t.message}"</p>
+              <h4>{t.name}</h4>
+              <p className="stars">{renderStars(t.stars)}</p>
+            </div>
+          ))}
+        </div>
+
+        <p className="testimonials-note">
+          See more reviews on our{" "}
+          <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer">
+            Google Maps listing
+          </a>
+          .
+        </p>
       </div>
-      <p style={{ marginTop: "20px", fontSize: "14px", textAlign: "center" }}>
-        See more reviews on our{" "}
-        <a
-          href="YOUR_GOOGLE_MAP_URL"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Google Map listing
-        </a>
-        .
-      </p>
     </section>
   );
 }

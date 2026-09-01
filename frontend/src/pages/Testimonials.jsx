@@ -1,5 +1,7 @@
+import TestimonialsSection from "../components/TestimonialsSection";
+
 function Testimonials() {
-  return <h1>Client Testimonials</h1>;
+  return <TestimonialsSection />;
 }
 
 export default Testimonials;

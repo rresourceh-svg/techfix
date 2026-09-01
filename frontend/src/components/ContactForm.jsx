@@ -26,30 +26,31 @@ function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
+      <div className="form-row">
+        <div className="form-group">
+          <label>Name</label>
+          <input type="text" name="name" required />
+        </div>
+        <div className="form-group">
+          <label>Phone</label>
+          <input type="tel" name="phone" required />
+        </div>
+      </div>
 
-      <div className="form-group">
-        <label>Name</label>
-        <input type="text" name="name" required />
+      <div className="form-row">
+        <div className="form-group">
+          <label>Email</label>
+          <input type="email" name="email" required />
+        </div>
+        <div className="form-group">
+          <label>Location (optional)</label>
+          <input type="text" name="location" placeholder="Your city or area" />
+        </div>
       </div>
 
       <div className="form-group">
-        <label>Email</label>
-        <input type="email" name="email" required />
-      </div>
-
-      <div className="form-group">
-        <label>Phone</label>
-        <input type="tel" name="phone" required />
-      </div>
-
-      <div className="form-group">
-        <label>Service Required</label>
-        <input type="text" name="service" />
-      </div>
-
-      <div className="form-group">
-        <label>Location (Optional)</label>
-        <input type="text" name="location" placeholder="Your city or area" />
+        <label>Service required</label>
+        <input type="text" name="service" placeholder="e.g. screen replacement, virus removal" />
       </div>
 
       <div className="form-group">
@@ -74,10 +75,8 @@ function ContactForm() {
       )}
 
       <p className="form-subtext">
-        📱 Primary booking: WhatsApp for fastest response. <br />
-        📨 Email form: backup record only. Optional location helps us prepare.
+        📱 Fastest response: WhatsApp. This form is a backup record — we'll still get back to you here.
       </p>
-
     </form>
   );
 }
