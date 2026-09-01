@@ -4,11 +4,13 @@ import iconVirus from "../assets/icons/virus.png";
 import iconUpgrade from "../assets/icons/upgrade.png";
 import iconPC from "../assets/icons/pc.png";
 import { WhatsAppIcon } from "./icons";
+import CircuitLines from "./CircuitLines";
 
 function HeroSection() {
   return (
     <section className="hero">
       <div className="hero-bg" style={{ backgroundImage: `url(${heroImage})` }} />
+      <CircuitLines />
       <div className="hero-scrim" />
 
       <div className="hero-inner">
@@ -21,14 +23,14 @@ function HeroSection() {
           <h1>Laptop and PC repair that comes to you.</h1>
 
           <p>
-            TechFix handles diagnostics, hardware upgrades, virus removal and home
+            TechFix by Mubeen handles diagnostics, hardware upgrades, virus removal and home
             networking right where you are in Lahore — plus a small lineup of
             genuine accessories on the side.
           </p>
 
           <div className="hero-buttons">
             <a
-              href="https://wa.me/923100045017?text=Hi%20TechFix%2C%20I%20want%20to%20book%20a%20service."
+              href="https://wa.me/923100045017?text=Hi%20TechFix%20by%20Mubeen%2C%20I%20want%20to%20book%20a%20service."
               className="btn btn-whatsapp"
               target="_blank"
               rel="noopener noreferrer"

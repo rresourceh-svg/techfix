@@ -8,6 +8,6 @@ export const accessories = [
 ];
 
 export function whatsappOrderLink(productName) {
-  const message = `Hi TechFix, I want to order: ${productName}`;
+  const message = `Hi TechFix by Mubeen, I want to order: ${productName}`;
   return `https://wa.me/923100045017?text=${encodeURIComponent(message)}`;
 }

@@ -1,13 +1,14 @@
 import { ShieldIcon, SearchCheckIcon, TagIcon, HeartHandshakeIcon } from "./icons";
+import Reveal from "./Reveal";
 
 function WhyTechFix() {
   return (
     <section className="why-section">
       <div className="container">
-        <div className="section-heading">
-          <h2>Why people stick with TechFix</h2>
+        <Reveal as="div" className="section-heading">
+          <h2>Why people stick with TechFix by Mubeen</h2>
           <p>Doorstep IT support only works if it's trustworthy. Here's what we hold ourselves to.</p>
-        </div>
+        </Reveal>
 
         <div className="why-grid">
           <div className="why-item">

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo-icon.png";
 import { FacebookIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from "./icons";
 
 // Keep these in sync with CommunitySection.jsx
@@ -16,8 +16,13 @@ function Footer() {
         <div className="footer-top">
           <div className="footer-brand">
             <Link to="/" className="brand">
-              <img src={logo} alt="TechFix Logo" className="logo" />
-              <span className="brand-name">Tech<span>Fix</span></span>
+              <span className="logo-ring">
+                <img src={logo} alt="TechFix by Mubeen" className="logo logo-footer" />
+              </span>
+              <span className="brand-text">
+                <span className="brand-name">TechFix</span>
+                <span className="brand-sub">by Mubeen</span>
+              </span>
             </Link>
             <p>Doorstep laptop and PC repair, upgrades and networking across Lahore.</p>
             <div className="footer-social">
@@ -56,7 +61,7 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} TechFix. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} TechFix by Mubeen. All rights reserved.</p>
           <p>Built in Lahore.</p>
         </div>
       </div>

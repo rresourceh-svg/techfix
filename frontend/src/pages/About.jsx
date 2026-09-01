@@ -1,40 +1,163 @@
+import Reveal from "../components/Reveal";
+import CircuitLines from "../components/CircuitLines";
+import {
+  SpeedIcon,
+  UserGearIcon,
+  TagIcon,
+  ShieldIcon,
+  LocationIcon,
+  HeartHandshakeIcon,
+  WhatsAppIcon,
+  PhoneIcon,
+} from "../components/icons";
+import { WHATSAPP_NUMBER } from "../data/servicesList";
+
+const quickFacts = [
+  { icon: LocationIcon, label: "Doorstep in Lahore" },
+  { icon: ShieldIcon, label: "Backup before we touch anything" },
+  { icon: TagIcon, label: "Price before work starts" },
+  { icon: SpeedIcon, label: "Same-visit fixes where possible" },
+];
+
+const reasons = [
+  {
+    icon: SpeedIcon,
+    title: "Fast & reliable service",
+    text: "We value your time. Most diagnostics happen on the spot, and we tell you straight away what it'll take to fix it.",
+  },
+  {
+    icon: UserGearIcon,
+    title: "Experienced technicians",
+    text: "Years of hands-on repair work across laptops, desktops, and every major brand — not guesswork learned on your device.",
+  },
+  {
+    icon: TagIcon,
+    title: "Transparent pricing",
+    text: "You get a price before we start, parts and labour quoted separately. No surprise line items when we hand the device back.",
+  },
+  {
+    icon: ShieldIcon,
+    title: "Your data stays safe",
+    text: "Critical repairs and Windows reinstalls start with a secure backup of your files — recovery never comes second.",
+  },
+  {
+    icon: LocationIcon,
+    title: "Doorstep, or wherever you are",
+    text: "We come to you anywhere in Lahore, and offer fair-rate video-call troubleshooting for clients further out.",
+  },
+  {
+    icon: HeartHandshakeIcon,
+    title: "Built on trust",
+    text: "Honest diagnosis, tested repairs, and a technician who stays reachable on WhatsApp long after the job is done.",
+  },
+];
+
 function About() {
   return (
     <section className="about-page">
-      <h1>About TechFix</h1>
+      <div className="about-hero circuit-band">
+        <CircuitLines />
+        <div className="container about-hero-inner">
+          <Reveal as="span" className="hero-tag">
+            <span className="dot" />
+            Your trusted technology partner
+          </Reveal>
+          <Reveal as="h1" delay={100}>
+            About TechFix by Mubeen
+          </Reveal>
+          <Reveal as="p" className="about-hero-lead" delay={200}>
+            A doorstep PC & laptop repair service in Lahore — built on
+            straight answers, tested fixes, and showing up when we say we
+            will.
+          </Reveal>
+        </div>
+      </div>
 
-      <p>
-        TechFix is a professional PC & Laptop repair business with years of hands-on experience in diagnostics, hardware upgrades, virus removal, and software solutions. Our team of skilled technicians is dedicated to providing fast, reliable, and affordable services for both homes and businesses. We pride ourselves on restoring your devices to peak performance while ensuring your data remains safe and secure.
-      </p>
+      <div className="container about-body">
+        <Reveal className="about-quickstrip">
+          {quickFacts.map(({ icon: Icon, label }) => (
+            <span className="about-quickstrip-item" key={label}>
+              <Icon className="about-quickstrip-icon" />
+              {label}
+            </span>
+          ))}
+        </Reveal>
 
-      <p>
-        Our mission is to deliver quick, effective, and lasting solutions while building trust and long-term relationships with our clients. Every repair, upgrade, and consultation is performed with the highest standards of care and professionalism. We understand that your devices are essential to your daily life, work, and business operations, which is why we prioritize accuracy, speed, and quality in every service we provide.
-      </p>
+        <div className="about-mission">
+          <Reveal as="div" className="about-mission-text">
+            <span className="eyebrow-kicker">Our mission</span>
+            <h2>Technology should empower you, not frustrate you.</h2>
+            <p>
+              TechFix by Mubeen is a professional PC & laptop repair service
+              built on years of hands-on experience in diagnostics, hardware
+              upgrades, virus removal, and software troubleshooting — for
+              homes and businesses alike.
+            </p>
+            <p>
+              Every repair, upgrade, and consultation gets the same standard
+              of care: restore your device to peak performance, keep your
+              data safe, and explain what actually happened so you can make
+              an informed call next time.
+            </p>
+          </Reveal>
 
-      <p>
-        At TechFix, we believe that technology should empower you, not frustrate you. Whether it’s a virus infection, hardware failure, software issue, or data loss, we have the tools and expertise to diagnose and solve your problems efficiently. Our goal is not just to repair, but to educate and guide our clients so they can make informed decisions about their devices.
-      </p>
+          <Reveal as="div" className="about-mission-panel" delay={150}>
+            <ShieldIcon className="about-mission-panel-icon" />
+            <p>
+              Whether it's a virus infection, hardware failure, or data
+              loss — we diagnose it straight, fix it properly, and explain
+              what happened along the way.
+            </p>
+            <span className="about-mission-panel-sign">— TechFix by Mubeen</span>
+          </Reveal>
+        </div>
 
-      <h2>Why choose TechFix?</h2>
-      <ul>
-        <li>Fast & reliable service — we value your time and provide prompt solutions.</li>
-        <li>Experienced technicians — skilled in repairing laptops, desktops, and all major brands.</li>
-        <li>Affordable pricing — quality repairs at competitive rates.</li>
-        <li>Customer satisfaction guaranteed — we stand behind every service we offer.</li>
-        <li>Doorstep services available in Lahore — convenience right at your home or office.</li>
-        <li>Remote troubleshooting via video call for clients outside the city (with fair charges).</li>
-        <li>Comprehensive support — from diagnostics to OS installation, hardware upgrades, and software optimization.</li>
-        <li>Data safety & backup — secure backup of your files before performing critical repairs or Windows reinstallations.</li>
-        <li>Password recovery & unlocking — we can safely unlock devices following verification procedures.</li>
-        <li>Flexible solutions — software installation, driver updates, and even safe game installations at fair deals.</li>
-        <li>Transparent guidance — we explain issues and solutions clearly so you understand what’s happening with your devices.</li>
-        <li>Long-term reliability — our fixes aim to last, reducing repeat issues and saving you money over time.</li>
-        <li>Professional consultation — we advise on upgrades, maintenance, and best practices to prolong your device’s life.</li>
-      </ul>
+        <Reveal as="div" className="section-heading">
+          <h2>Why choose TechFix by Mubeen?</h2>
+          <p>Six things we hold ourselves to on every single job.</p>
+        </Reveal>
 
-      <p>
-        At TechFix, we are more than just a repair service — we are your trusted technology partner. Whether you need an urgent fix, routine maintenance, or expert guidance on your devices, we are here to ensure that your technology works for you, not against you. Our commitment to quality, honesty, and client satisfaction sets us apart as the go-to PC & laptop service provider in Lahore and beyond.
-      </p>
+        <div className="about-grid">
+          {reasons.map((reason, i) => (
+            <Reveal
+              as="div"
+              className="about-card"
+              key={reason.title}
+              delay={(i % 3) * 90}
+            >
+              <span className="about-card-icon-wrap">
+                <reason.icon className="about-card-icon" />
+              </span>
+              <h3>{reason.title}</h3>
+              <p>{reason.text}</p>
+            </Reveal>
+          ))}
+        </div>
+
+        <Reveal className="services-cta-banner about-cta">
+          <div>
+            <h3>Got a device giving you trouble?</h3>
+            <p>Send a WhatsApp message or call — we'll diagnose it and quote you fast.</p>
+          </div>
+          <div className="services-cta-buttons">
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+                "Hi TechFix by Mubeen! I'd like to ask about a repair."
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-whatsapp"
+            >
+              <WhatsAppIcon className="whatsapp-icon" />
+              Chat on WhatsApp
+            </a>
+            <a href={`tel:+${WHATSAPP_NUMBER}`} className="btn btn-outline-dark">
+              <PhoneIcon className="whatsapp-icon" />
+              Call Us
+            </a>
+          </div>
+        </Reveal>
+      </div>
     </section>
   );
 }

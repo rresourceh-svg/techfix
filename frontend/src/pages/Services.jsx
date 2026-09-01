@@ -1,99 +1,124 @@
-import ServiceCard from "../components/ServiceCard";
-import iconRepair from "../assets/icons/repair.png";
-import iconVirus from "../assets/icons/virus.png";
-import iconUpgrade from "../assets/icons/upgrade.png";
-import iconPC from "../assets/icons/pc.png";
-import iconSetup from "../assets/icons/setup.png";      // you need to add suitable icons
-import iconDiagnose from "../assets/icons/diagnose.png";
-import iconUnlock from "../assets/icons/unlock.png";
-import iconBackup from "../assets/icons/backup.png";
-import iconDrivers from "../assets/icons/drivers.png";
-import iconSoftware from "../assets/icons/software.png";
-import iconGames from "../assets/icons/games.png";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
+import ServiceCategoryCard from "../components/ServiceCategoryCard";
+import ServiceFinder from "../components/ServiceFinder";
+import Reveal from "../components/Reveal";
+import CircuitLines from "../components/CircuitLines";
+import { ClipboardIcon, PhoneIcon, WhatsAppIcon } from "../components/icons";
+import { serviceCategories, termsAndConditions, WHATSAPP_NUMBER } from "../data/servicesList";
 
 function Services() {
+  const location = useLocation();
+  const [highlightedId, setHighlightedId] = useState(null);
+  const [highlightedCategory, setHighlightedCategory] = useState(null);
+  const highlightTimeout = useRef(null);
+  const categoryHighlightTimeout = useRef(null);
+
+  function scrollAndHighlight(id, setter, timeoutRef, block = "center") {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block });
+    }
+    setter(id);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => setter(null), 2400);
+  }
+
+  // Landed here from a "What we fix" card on the Home page — jump straight
+  // to that category's section and give it a brief highlight.
+  useEffect(() => {
+    const targetCategory = location.state?.scrollToCategory;
+    if (targetCategory) {
+      // Wait a tick so the page has fully rendered before measuring/scrolling.
+      const raf = requestAnimationFrame(() => {
+        scrollAndHighlight(targetCategory, setHighlightedCategory, categoryHighlightTimeout, "start");
+      });
+      return () => cancelAnimationFrame(raf);
+    }
+  }, [location.state]);
+
+  function handleServiceSelect(id) {
+    scrollAndHighlight(id, setHighlightedId, highlightTimeout, "center");
+  }
+
   return (
     <section className="services-page">
-      <h1>Our Services</h1>
-      <p>We provide a wide range of PC and laptop repair services.</p>
+      <div className="services-hero circuit-band">
+        <CircuitLines />
+        <div className="container services-hero-inner">
+          <Reveal as="div" className="services-page-header">
+            <span className="eyebrow-kicker eyebrow-kicker-on-dark">Service Rate List</span>
+            <h1>Our Services & Pricing</h1>
+            <p>
+              Transparent doorstep rates for laptop, PC, printer and network support in Lahore —
+              plus remote support for customers outside Lahore or far from our base. Tap{" "}
+              <strong>Book</strong> on any service to send us a ready-made WhatsApp message —
+              no typing needed.
+            </p>
+          </Reveal>
 
-      <div className="services-grid">
-        {/* Laptop Repair */}
-        <ServiceCard
-          title="Laptop Repair"
-          description="Screen replacement, motherboard replacement, keyboard change, battery replacements, diagnostics."
-          icon={iconRepair}
-        />
+          <Reveal delay={120}>
+            <ServiceFinder onSelect={handleServiceSelect} />
+          </Reveal>
+        </div>
+      </div>
 
-        {/* Virus & Malware Removal */}
-        <ServiceCard
-          title="Virus & Malware Removal"
-          description="Complete malware cleanup, system optimization, and antivirus setup."
-          icon={iconVirus}
-        />
+      <div className="container services-body">
+      <div className="service-sections">
+        {serviceCategories.map((category) => (
+          <ServiceCategoryCard
+            key={category.id}
+            id={category.id}
+            title={category.title}
+            icon={category.icon}
+            note={category.note}
+            items={category.items}
+            highlightedId={highlightedId}
+            isHighlighted={highlightedCategory === category.id}
+          />
+        ))}
+      </div>
 
-        {/* Hardware Upgrades */}
-        <ServiceCard
-          title="Hardware Upgrades"
-          description="SSD, RAM, GPU upgrades, and performance improvements."
-          icon={iconUpgrade}
-        />
+      <div className="terms-card">
+        <div className="rate-card-head">
+          <span className="rate-card-icon">
+            <ClipboardIcon className="rate-card-icon-svg" />
+          </span>
+          <h3>Terms & Conditions</h3>
+        </div>
+        <ul className="terms-list">
+          {termsAndConditions.map((term) => (
+            <li key={term.label}>
+              <span className="terms-label">{term.label}</span>
+              <span className="terms-value">{term.value}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-        {/* PC Troubleshooting */}
-        <ServiceCard
-          title="PC Troubleshooting"
-          description="Diagnostics, repairs, OS installation, network setup, and maintenance."
-          icon={iconPC}
-        />
-
-        {/* Complete Laptop & PC Setup */}
-        <ServiceCard
-          title="Complete Laptop & PC Setup"
-          description="Windows installation, drivers setup, essential software installation — just sit back and watch us prepare your system."
-          icon={iconSetup}
-        />
-
-        {/* Diagnose Problems */}
-        <ServiceCard
-          title="Diagnose Your Problems"
-          description="Sound issues, Wi-Fi not working, display problems, driver conflicts, and other hardware/software issues."
-          icon={iconDiagnose}
-        />
-
-        {/* Password Unlock */}
-        <ServiceCard
-          title="Laptop & PC Unlock"
-          description="Forgot your password? We can unlock your device following verification rules to ensure ownership."
-          icon={iconUnlock}
-        />
-
-        {/* Data Backup & Windows Reinstallation */}
-        <ServiceCard
-          title="Data Backup & Windows Reinstall"
-          description="If Windows fails and you need your files, we can safely backup your data and reinstall Windows."
-          icon={iconBackup}
-        />
-
-        {/* Drivers Issue Solving */}
-        <ServiceCard
-          title="Driver Issue Solutions"
-          description="All driver-related problems fixed for your laptop or PC for smooth performance."
-          icon={iconDrivers}
-        />
-
-        {/* Software Installation */}
-        <ServiceCard
-          title="Software Installation"
-          description="We install essential software, utilities, and apps you need for work or personal use."
-          icon={iconSoftware}
-        />
-
-        {/* Games & Entertainment Setup */}
-        <ServiceCard
-          title="Games & Entertainment"
-          description="Get games installed and optimized for your system with fair deals."
-          icon={iconGames}
-        />
+      <div className="services-cta-banner">
+        <div>
+          <h3>Not sure which service you need?</h3>
+          <p>Send us your issue on WhatsApp or call us — we'll diagnose and quote you fast.</p>
+        </div>
+        <div className="services-cta-buttons">
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+              "Hi TechFix by Mubeen! I need help but I'm not sure which service applies. Can you assist?"
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-whatsapp"
+          >
+            <WhatsAppIcon className="whatsapp-icon" />
+            Chat on WhatsApp
+          </a>
+          <a href={`tel:+${WHATSAPP_NUMBER}`} className="btn btn-outline-dark">
+            <PhoneIcon className="whatsapp-icon" />
+            Call Us
+          </a>
+        </div>
+      </div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
-import logo from "../assets/images/logo.png";
+import logo from "../assets/images/logo-icon.png";
 import { WhatsAppIcon } from "./icons";
 
 function Header() {
@@ -10,8 +10,13 @@ function Header() {
     <header className="header">
       <div className="nav-container">
         <Link to="/" className="brand" onClick={() => setMenuOpen(false)}>
-          <img src={logo} alt="TechFix Logo" className="logo" />
-          <span className="brand-name">Tech<span>Fix</span></span>
+          <span className="logo-ring">
+            <img src={logo} alt="TechFix by Mubeen" className="logo logo-header" />
+          </span>
+          <span className="brand-text">
+            <span className="brand-name">TechFix</span>
+            <span className="brand-sub">by Mubeen</span>
+          </span>
         </Link>
 
         <button
@@ -25,14 +30,14 @@ function Header() {
 
         <nav className={`nav-menu ${menuOpen ? "active" : ""}`}>
           <ul className="nav-links">
-            <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-            <li><Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>
-            <li><Link to="/accessories" onClick={() => setMenuOpen(false)}>Accessories</Link></li>
-            <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
-            <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
+            <li><NavLink to="/" end onClick={() => setMenuOpen(false)}>Home</NavLink></li>
+            <li><NavLink to="/services" onClick={() => setMenuOpen(false)}>Services</NavLink></li>
+            <li><NavLink to="/accessories" onClick={() => setMenuOpen(false)}>Accessories</NavLink></li>
+            <li><NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink></li>
+            <li><NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink></li>
             <li>
               <a
-                href="https://wa.me/923100045017?text=Hi%20TechFix%2C%20I%20want%20to%20book%20a%20service."
+                href="https://wa.me/923100045017?text=Hi%20TechFix%20by%20Mubeen%2C%20I%20want%20to%20book%20a%20service."
                 className="nav-cta"
                 target="_blank"
                 rel="noopener noreferrer"
