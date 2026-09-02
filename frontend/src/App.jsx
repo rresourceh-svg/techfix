@@ -10,10 +10,12 @@ import About from "./pages/About";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import WhatsAppButton from "./components/WhatsAppButton";
+import AnalyticsTracker from "./components/AnalyticsTracker";
 
 function App() {
   return (
     <>
+      <AnalyticsTracker />
       <Header />
       
       <Routes>
