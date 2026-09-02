@@ -8,7 +8,7 @@ export const accessories = [
       "An everyday charging cable we hand out on repair visits — sturdy enough for daily use and quick enough not to keep you waiting.",
     spec: "1.5 metre · 6A fast charge · durable braided jacket",
     price: "Rs. 350",
-    image: "/images/usb-c-cable.jpg",
+    image: "/images/usb-c-cable.jpeg",
   },
 ];
 
