@@ -1,5 +1,6 @@
 import Reveal from "../components/Reveal";
 import CircuitLines from "../components/CircuitLines";
+import aboutHeroImage from "../assets/images/about.jpg";
 import {
   SpeedIcon,
   UserGearIcon,
@@ -56,22 +57,25 @@ const reasons = [
 function About() {
   return (
     <section className="about-page">
-      <div className="about-hero circuit-band">
-        <span className="circuit-band-glow" aria-hidden="true" />
+      <div className="about-hero hero">
+        <div className="hero-bg" style={{ backgroundImage: `url(${aboutHeroImage})` }} />
         <CircuitLines />
+        <div className="hero-scrim" />
         <div className="container about-hero-inner">
-          <Reveal as="span" className="hero-tag">
-            <span className="dot" />
-            Your trusted technology partner
-          </Reveal>
-          <Reveal as="h1" delay={100}>
-            About TechFix by Mubeen
-          </Reveal>
-          <Reveal as="p" className="about-hero-lead" delay={200}>
-            A doorstep PC & laptop repair service in Lahore — built on
-            straight answers, tested fixes, and showing up when we say we
-            will.
-          </Reveal>
+          <div className="about-hero-copy">
+            <Reveal as="span" className="hero-tag">
+              <span className="dot" />
+              Your trusted technology partner
+            </Reveal>
+            <Reveal as="h1" delay={100}>
+              About TechFix by Mubeen
+            </Reveal>
+            <Reveal as="p" className="about-hero-lead" delay={200}>
+              A doorstep PC & laptop repair service in Lahore — built on
+              straight answers, tested fixes, and showing up when we say we
+              will.
+            </Reveal>
+          </div>
         </div>
       </div>
 
