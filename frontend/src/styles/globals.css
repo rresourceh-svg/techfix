@@ -228,7 +228,6 @@ img { max-width: 100%; display: block; }
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid var(--border-dark);
-  overflow: hidden;
 }
 
 /* Animated shimmer line under the navbar, echoing the logo's blue/cyan gradient */
