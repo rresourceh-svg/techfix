@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/images/logo-icon.png";
 import { WhatsAppIcon } from "./icons";
+import { trackEvent } from "../lib/analytics";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,7 +40,10 @@ function Header() {
               <a
                 href="https://wa.me/923100045017?text=Hi%20TechFix%20by%20Mubeen%2C%20I%20want%20to%20book%20a%20service."
                 className="nav-cta"
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  setMenuOpen(false);
+                  trackEvent("whatsapp_click", { source: "nav_book_now" });
+                }}
               >
                 <WhatsAppIcon className="whatsapp-icon" />
                 Book Now

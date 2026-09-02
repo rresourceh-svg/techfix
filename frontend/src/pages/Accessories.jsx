@@ -11,6 +11,7 @@ import {
 } from "../components/icons";
 import { accessories } from "../data/accessories";
 import { WHATSAPP_NUMBER } from "../data/servicesList";
+import { trackEvent } from "../lib/analytics";
 
 const trustPoints = [
   { icon: SearchCheckIcon, label: "Tested before listing" },
@@ -83,11 +84,16 @@ function Accessories() {
                 "Hi TechFix by Mubeen! I'm looking for an accessory — can you help me find the right one?"
               )}`}
               className="btn btn-whatsapp"
+              onClick={() => trackEvent("whatsapp_click", { source: "accessories_cta_banner" })}
             >
               <WhatsAppIcon className="whatsapp-icon" />
               Chat on WhatsApp
             </a>
-            <a href={`tel:+${WHATSAPP_NUMBER}`} className="btn btn-outline-dark">
+            <a
+              href={`tel:+${WHATSAPP_NUMBER}`}
+              className="btn btn-outline-dark"
+              onClick={() => trackEvent("call_click", { source: "accessories_cta_banner" })}
+            >
               <PhoneIcon className="whatsapp-icon" />
               Call Us
             </a>

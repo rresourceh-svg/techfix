@@ -5,6 +5,7 @@ import iconUpgrade from "../assets/icons/upgrade.png";
 import iconPC from "../assets/icons/pc.png";
 import { WhatsAppIcon } from "./icons";
 import CircuitLines from "./CircuitLines";
+import { trackEvent } from "../lib/analytics";
 
 function HeroSection() {
   return (
@@ -32,6 +33,7 @@ function HeroSection() {
             <a
               href="https://wa.me/923100045017?text=Hi%20TechFix%20by%20Mubeen%2C%20I%20want%20to%20book%20a%20service."
               className="btn btn-whatsapp"
+              onClick={() => trackEvent("whatsapp_click", { source: "hero_button" })}
             >
               <WhatsAppIcon className="whatsapp-icon" />
               Message on WhatsApp

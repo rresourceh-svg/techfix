@@ -1,5 +1,6 @@
 import ContactForm from "./ContactForm";
 import { WhatsAppIcon, PhoneIcon, LocationIcon } from "./icons";
+import { trackEvent } from "../lib/analytics";
 
 function ContactSection() {
   return (
@@ -18,7 +19,11 @@ function ContactSection() {
               <WhatsAppIcon className="icon" />
               <div>
                 <p className="label">WhatsApp</p>
-                <a href="https://wa.me/923100045017" className="value">
+                <a
+                  href="https://wa.me/923100045017"
+                  className="value"
+                  onClick={() => trackEvent("whatsapp_click", { source: "contact_section" })}
+                >
                   +92 310 0045017
                 </a>
               </div>
@@ -28,7 +33,11 @@ function ContactSection() {
               <PhoneIcon className="icon" />
               <div>
                 <p className="label">Call</p>
-                <a href="tel:+923100045017" className="value">+92 310 0045017</a>
+                <a
+                  href="tel:+923100045017"
+                  className="value"
+                  onClick={() => trackEvent("call_click", { source: "contact_section" })}
+                >+92 310 0045017</a>
               </div>
             </div>
 

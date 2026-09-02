@@ -14,7 +14,6 @@ export const accessories = [
 
 // Used by the homepage "accessories shelf" teaser card — keep this message
 // as-is so existing links already shared with customers keep working.
-//mubeen tariq
 export function whatsappOrderLink(productName) {
   const message = `Hi TechFix by Mubeen, I want to order: ${productName}`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;

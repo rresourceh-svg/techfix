@@ -1,6 +1,7 @@
 import CableIcon from "./CableIcon";
 import { WhatsAppIcon } from "./icons";
 import { whatsappOrderLinkWithPrice } from "../data/accessories";
+import { trackEvent } from "../lib/analytics";
 
 // Product card used only on the full Accessories page. Visually matches
 // the light "about-card" design system (white surface, top accent bar,
@@ -26,6 +27,7 @@ function AccessoryCard({ product }) {
         <a
           href={whatsappOrderLinkWithPrice(product.name, product.price)}
           className="btn btn-whatsapp btn-sm accessory-card-btn"
+          onClick={() => trackEvent("whatsapp_click", { source: "accessory_card", product_name: product.name })}
         >
           <WhatsAppIcon className="whatsapp-icon" />
           Order on WhatsApp

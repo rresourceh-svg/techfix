@@ -1,6 +1,7 @@
 import CableIcon from "./CableIcon";
 import { WhatsAppIcon } from "./icons";
 import { whatsappOrderLink } from "../data/accessories";
+import { trackEvent } from "../lib/analytics";
 
 function ProductCard({ product }) {
   return (
@@ -19,6 +20,7 @@ function ProductCard({ product }) {
         <a
           href={whatsappOrderLink(product.name)}
           className="btn btn-whatsapp btn-sm"
+          onClick={() => trackEvent("whatsapp_click", { source: "homepage_product_card", product_name: product.name })}
         >
           <WhatsAppIcon className="whatsapp-icon" />
           Order on WhatsApp

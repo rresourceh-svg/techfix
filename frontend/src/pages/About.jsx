@@ -11,6 +11,7 @@ import {
   PhoneIcon,
 } from "../components/icons";
 import { WHATSAPP_NUMBER } from "../data/servicesList";
+import { trackEvent } from "../lib/analytics";
 
 const quickFacts = [
   { icon: LocationIcon, label: "Doorstep in Lahore" },
@@ -146,11 +147,16 @@ function About() {
                 "Hi TechFix by Mubeen! I'd like to ask about a repair."
               )}`}
               className="btn btn-whatsapp"
+              onClick={() => trackEvent("whatsapp_click", { source: "about_cta_banner" })}
             >
               <WhatsAppIcon className="whatsapp-icon" />
               Chat on WhatsApp
             </a>
-            <a href={`tel:+${WHATSAPP_NUMBER}`} className="btn btn-outline-dark">
+            <a
+              href={`tel:+${WHATSAPP_NUMBER}`}
+              className="btn btn-outline-dark"
+              onClick={() => trackEvent("call_click", { source: "about_cta_banner" })}
+            >
               <PhoneIcon className="whatsapp-icon" />
               Call Us
             </a>

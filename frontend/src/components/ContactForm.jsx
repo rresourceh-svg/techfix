@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { trackEvent } from "../lib/analytics";
 
 function ContactForm() {
   const [status, setStatus] = useState("");
@@ -18,6 +19,7 @@ function ContactForm() {
 
     if (response.ok) {
       setStatus("SUCCESS");
+      trackEvent("contact_form_submit");
       e.target.reset();
     } else {
       setStatus("ERROR");

@@ -1,6 +1,7 @@
 import * as Icons from "./icons";
 import { WhatsAppIcon } from "./icons";
 import { buildServiceWhatsAppLink, slugify } from "../data/servicesList";
+import { trackEvent } from "../lib/analytics";
 
 function ServiceItemCard({ name, price, description, icon, highlightedId }) {
   const IconComponent = Icons[icon] || Icons.WrenchIcon;
@@ -27,6 +28,7 @@ function ServiceItemCard({ name, price, description, icon, highlightedId }) {
           href={link}
           className="item-card-btn"
           aria-label={`Book ${name} on WhatsApp`}
+          onClick={() => trackEvent("whatsapp_click", { source: "service_item_card", service_name: name })}
         >
           <WhatsAppIcon className="whatsapp-icon" />
           Book Now

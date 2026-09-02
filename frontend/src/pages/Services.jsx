@@ -6,6 +6,7 @@ import Reveal from "../components/Reveal";
 import CircuitLines from "../components/CircuitLines";
 import { ClipboardIcon, PhoneIcon, WhatsAppIcon } from "../components/icons";
 import { serviceCategories, termsAndConditions, WHATSAPP_NUMBER } from "../data/servicesList";
+import { trackEvent } from "../lib/analytics";
 
 function Services() {
   const location = useLocation();
@@ -108,11 +109,16 @@ function Services() {
               "Hi TechFix by Mubeen! I need help but I'm not sure which service applies. Can you assist?"
             )}`}
             className="btn btn-whatsapp"
+            onClick={() => trackEvent("whatsapp_click", { source: "services_cta_banner" })}
           >
             <WhatsAppIcon className="whatsapp-icon" />
             Chat on WhatsApp
           </a>
-          <a href={`tel:+${WHATSAPP_NUMBER}`} className="btn btn-outline-dark">
+          <a
+            href={`tel:+${WHATSAPP_NUMBER}`}
+            className="btn btn-outline-dark"
+            onClick={() => trackEvent("call_click", { source: "services_cta_banner" })}
+          >
             <PhoneIcon className="whatsapp-icon" />
             Call Us
           </a>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo-icon.png";
 import { FacebookIcon, InstagramIcon, TikTokIcon, WhatsAppIcon } from "./icons";
+import { trackEvent } from "../lib/analytics";
 
 // Keep these in sync with CommunitySection.jsx
 const SOCIALS = {
@@ -48,12 +49,16 @@ function Footer() {
               <h4>Get in touch</h4>
               <ul>
                 <li>
-                  <a href="https://wa.me/923100045017" className="footer-whatsapp-link">
+                  <a
+                    href="https://wa.me/923100045017"
+                    className="footer-whatsapp-link"
+                    onClick={() => trackEvent("whatsapp_click", { source: "footer" })}
+                  >
                     <WhatsAppIcon className="whatsapp-icon" />
                     WhatsApp
                   </a>
                 </li>
-                <li><a href="tel:+923100045017">+92 310 0045017</a></li>
+                <li><a href="tel:+923100045017" onClick={() => trackEvent("call_click", { source: "footer" })}>+92 310 0045017</a></li>
                 <li>Doorstep across Lahore</li>
               </ul>
             </div>
