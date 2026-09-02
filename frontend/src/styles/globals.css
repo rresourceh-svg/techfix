@@ -228,7 +228,6 @@ img { max-width: 100%; display: block; }
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid var(--border-dark);
-  overflow: hidden;
 }
 
 /* Animated shimmer line under the navbar, echoing the logo's blue/cyan gradient */
@@ -1129,8 +1128,8 @@ img { max-width: 100%; display: block; }
 /* Dark band housing the header + search/booking bar, so the finder reads
    as part of the same surface instead of a plain white bar dropped onto
    a plain white page. Mirrors the homepage hero's ink + circuit look. */
-.services-hero { padding: 72px 0 56px; }
-.services-hero-inner { max-width: 660px; }
+.services-hero { padding: 88px 0 64px; }
+.services-hero-inner { max-width: 620px; margin: 0; position: relative; z-index: 2; }
 
 .services-page-header { max-width: 640px; margin-bottom: 32px; }
 .services-page-header h1 { font-size: clamp(28px, 3.4vw, 38px); text-align: left; margin-bottom: 10px; }
