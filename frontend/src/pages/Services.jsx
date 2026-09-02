@@ -4,6 +4,7 @@ import ServiceCategoryCard from "../components/ServiceCategoryCard";
 import ServiceFinder from "../components/ServiceFinder";
 import Reveal from "../components/Reveal";
 import CircuitLines from "../components/CircuitLines";
+import servicesHeroImage from "../assets/images/services.jpg";
 import { ClipboardIcon, PhoneIcon, WhatsAppIcon } from "../components/icons";
 import { serviceCategories, termsAndConditions, WHATSAPP_NUMBER } from "../data/servicesList";
 import { trackEvent } from "../lib/analytics";
@@ -44,9 +45,10 @@ function Services() {
 
   return (
     <section className="services-page">
-      <div className="services-hero circuit-band">
-        <span className="circuit-band-glow" aria-hidden="true" />
+      <div className="services-hero hero">
+        <div className="hero-bg" style={{ backgroundImage: `url(${servicesHeroImage})` }} />
         <CircuitLines />
+        <div className="hero-scrim" />
         <div className="container services-hero-inner">
           <Reveal as="div" className="services-page-header">
             <span className="eyebrow-kicker eyebrow-kicker-on-dark">Service Rate List</span>

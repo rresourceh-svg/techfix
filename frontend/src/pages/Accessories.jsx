@@ -1,6 +1,7 @@
 import AccessoryCard from "../components/AccessoryCard";
 import Reveal from "../components/Reveal";
 import CircuitLines from "../components/CircuitLines";
+import accessoriesHeroImage from "../assets/images/access.jpg";
 import {
   SearchCheckIcon,
   ShieldIcon,
@@ -24,9 +25,10 @@ const trustPoints = [
 function Accessories() {
   return (
     <section className="accessories-page">
-      <div className="accessories-hero circuit-band">
-        <span className="circuit-band-glow" aria-hidden="true" />
+      <div className="accessories-hero hero">
+        <div className="hero-bg" style={{ backgroundImage: `url(${accessoriesHeroImage})` }} />
         <CircuitLines />
+        <div className="hero-scrim" />
         <div className="container accessories-hero-inner">
           <Reveal as="span" className="hero-tag">
             <span className="dot" />
