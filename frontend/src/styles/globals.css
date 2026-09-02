@@ -228,7 +228,6 @@ img { max-width: 100%; display: block; }
   top: 0;
   z-index: 1000;
   border-bottom: 1px solid var(--border-dark);
-  overflow: hidden;
 }
 
 /* Animated shimmer line under the navbar, echoing the logo's blue/cyan gradient */
@@ -1000,8 +999,9 @@ img { max-width: 100%; display: block; }
    ========================================================= */
 .about-page { color: var(--text); }
 
-.about-hero { padding: 76px 0 64px; }
-.about-hero-inner { max-width: 640px; }
+.about-hero { padding: 88px 0 64px; min-height: 460px; display: flex; align-items: center; }
+.about-hero-inner { position: relative; z-index: 2; width: 100%; }
+.about-hero-copy { max-width: 640px; }
 .about-hero h1 { font-size: clamp(28px, 3.6vw, 42px); margin-bottom: 16px; }
 .about-hero-lead { font-size: 17.5px; color: var(--text-on-dark-muted); margin: 0; max-width: 540px; }
 
@@ -1129,8 +1129,8 @@ img { max-width: 100%; display: block; }
 /* Dark band housing the header + search/booking bar, so the finder reads
    as part of the same surface instead of a plain white bar dropped onto
    a plain white page. Mirrors the homepage hero's ink + circuit look. */
-.services-hero { padding: 72px 0 56px; }
-.services-hero-inner { max-width: 660px; }
+.services-hero { padding: 88px 0 64px; min-height: 460px; display: flex; align-items: center; }
+.services-hero-inner { position: relative; z-index: 2; width: 100%; }
 
 .services-page-header { max-width: 640px; margin-bottom: 32px; }
 .services-page-header h1 { font-size: clamp(28px, 3.4vw, 38px); text-align: left; margin-bottom: 10px; }
@@ -1484,17 +1484,111 @@ img { max-width: 100%; display: block; }
 /* =========================================================
    Standalone Contact page
    ========================================================= */
-.contact-page { padding: 76px 24px; background: var(--surface); }
-.contact-container {
-  max-width: 600px;
-  margin: 0 auto;
-  background: var(--surface-2);
-  padding: 40px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border-light);
+.contact-page { color: var(--text); background: var(--surface); }
+
+.contact-hero { padding: 76px 0 60px; }
+.contact-hero-inner { max-width: 620px; position: relative; z-index: 1; }
+.contact-hero-inner h1 { font-size: clamp(28px, 3.6vw, 40px); margin-bottom: 14px; }
+.contact-hero-lead { font-size: 16.5px; color: var(--text-on-dark-muted); margin: 0; max-width: 500px; }
+
+.contact-body { padding: 64px 24px 96px; }
+
+.contact-grid-page { align-items: start; }
+
+.contact-info-assurances {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-dark);
 }
-.contact-container h1 { font-size: 28px; margin-bottom: 8px; }
-.contact-container p { margin-bottom: 28px; color: var(--text-muted); }
+.contact-info-assurance {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--text-on-dark-muted);
+}
+.contact-info-assurance-icon { width: 16px; height: 16px; color: var(--cyan); flex-shrink: 0; }
+
+.contact-form-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 34px 34px 28px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 48px -24px rgba(10, 18, 32, 0.16);
+}
+.contact-form-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient);
+}
+
+@media (max-width: 640px) {
+  .contact-form-card { padding: 26px 20px 22px; }
+}
+
+/* Icon-prefixed inputs so the form reads like a real product, not a
+   plain HTML form -- each field gets a small themed glyph on the left. */
+.input-with-icon { position: relative; display: flex; align-items: center; }
+.input-with-icon .input-icon {
+  position: absolute;
+  left: 14px;
+  width: 17px;
+  height: 17px;
+  color: var(--text-muted);
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+.input-with-icon input,
+.input-with-icon textarea {
+  width: 100%;
+  padding-left: 42px;
+}
+.input-with-icon-textarea .input-icon-textarea { top: 15px; }
+.input-with-icon:focus-within .input-icon { color: var(--blue); }
+
+.form-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 10px 24px -10px rgba(47, 143, 255, 0.5);
+}
+.form-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 28px -10px rgba(47, 143, 255, 0.6); }
+.form-btn:disabled { opacity: 0.75; cursor: not-allowed; }
+
+.form-btn-spinner {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 2px solid rgba(6, 17, 31, 0.3);
+  border-top-color: #06111f;
+  animation: formBtnSpin 0.7s linear infinite;
+}
+@keyframes formBtnSpin { to { transform: rotate(360deg); } }
+
+.form-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  font-weight: 500;
+  font-size: 14px;
+}
+.form-status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.form-status-success { background: rgba(26, 143, 76, 0.08); color: #1a8f4c; }
+.form-status-success .form-status-dot { background: #1a8f4c; }
+.form-status-error { background: rgba(217, 45, 32, 0.08); color: #d92d20; }
+.form-status-error .form-status-dot { background: #d92d20; }
 
 /* =========================================================
    Accessories page
@@ -1505,8 +1599,9 @@ img { max-width: 100%; display: block; }
    ========================================================= */
 .accessories-page { color: var(--text); }
 
-.accessories-hero { padding: 76px 0 64px; }
-.accessories-hero-inner { max-width: 640px; }
+.accessories-hero { padding: 88px 0 64px; min-height: 460px; display: flex; align-items: center; }
+.accessories-hero-inner { position: relative; z-index: 2; width: 100%; }
+.accessories-hero-copy { max-width: 640px; }
 .accessories-hero h1 { font-size: clamp(28px, 3.6vw, 42px); margin-bottom: 16px; }
 .accessories-hero-lead { font-size: 17.5px; color: var(--text-on-dark-muted); margin: 0; max-width: 540px; }
 
