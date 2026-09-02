@@ -4,7 +4,7 @@ import ServiceCategoryCard from "../components/ServiceCategoryCard";
 import ServiceFinder from "../components/ServiceFinder";
 import Reveal from "../components/Reveal";
 import CircuitLines from "../components/CircuitLines";
-import servicesHeroImage from "../assets/images/hero.jpg";
+import servicesHeroImage from "../assets/images/services.jpg";
 import { ClipboardIcon, PhoneIcon, WhatsAppIcon } from "../components/icons";
 import { serviceCategories, termsAndConditions, WHATSAPP_NUMBER } from "../data/servicesList";
 import { trackEvent } from "../lib/analytics";

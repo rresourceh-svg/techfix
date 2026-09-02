@@ -1129,7 +1129,7 @@ img { max-width: 100%; display: block; }
    as part of the same surface instead of a plain white bar dropped onto
    a plain white page. Mirrors the homepage hero's ink + circuit look. */
 .services-hero { padding: 88px 0 64px; }
-.services-hero-inner { max-width: 620px; margin: 0; position: relative; z-index: 2; }
+.services-hero-inner { position: relative; z-index: 2; }
 
 .services-page-header { max-width: 640px; margin-bottom: 32px; }
 .services-page-header h1 { font-size: clamp(28px, 3.4vw, 38px); text-align: left; margin-bottom: 10px; }
