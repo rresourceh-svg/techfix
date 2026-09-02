@@ -6,8 +6,6 @@ function WhatsAppButton() {
   return (
     <a
       href={whatsappURL}
-      target="_blank"
-      rel="noopener noreferrer"
       className="whatsapp-button"
       aria-label="Message TechFix on WhatsApp"
     >

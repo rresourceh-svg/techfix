@@ -10,7 +10,11 @@ function AccessoryCard({ product }) {
   return (
     <div className="accessory-card">
       <div className="accessory-card-media">
-        <CableIcon className="accessory-card-media-icon" />
+        {product.image ? (
+          <img src={product.image} alt={product.name} className="accessory-card-media-img" />
+        ) : (
+          <CableIcon className="accessory-card-media-icon" />
+        )}
       </div>
       <div className="accessory-card-body">
         <h3>{product.name}</h3>
@@ -22,8 +26,6 @@ function AccessoryCard({ product }) {
         <a
           href={whatsappOrderLinkWithPrice(product.name, product.price)}
           className="btn btn-whatsapp btn-sm accessory-card-btn"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <WhatsAppIcon className="whatsapp-icon" />
           Order on WhatsApp

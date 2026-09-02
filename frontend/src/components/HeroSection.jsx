@@ -32,8 +32,6 @@ function HeroSection() {
             <a
               href="https://wa.me/923100045017?text=Hi%20TechFix%20by%20Mubeen%2C%20I%20want%20to%20book%20a%20service."
               className="btn btn-whatsapp"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               <WhatsAppIcon className="whatsapp-icon" />
               Message on WhatsApp

@@ -6,7 +6,11 @@ function ProductCard({ product }) {
   return (
     <div className="product-card">
       <div className="product-visual">
-        <CableIcon />
+        {product.image ? (
+          <img src={product.image} alt={product.name} className="product-visual-img" />
+        ) : (
+          <CableIcon />
+        )}
       </div>
       <div className="product-info">
         <h3>{product.name}</h3>
@@ -15,8 +19,6 @@ function ProductCard({ product }) {
         <a
           href={whatsappOrderLink(product.name)}
           className="btn btn-whatsapp btn-sm"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <WhatsAppIcon className="whatsapp-icon" />
           Order on WhatsApp

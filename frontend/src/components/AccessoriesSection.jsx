@@ -7,6 +7,7 @@ import { accessories } from "../data/accessories";
 function AccessoriesSection() {
   return (
     <section className="accessories-section circuit-band">
+      <span className="circuit-band-glow" aria-hidden="true" />
       <CircuitLines />
       <div className="container">
         <Reveal as="div" className="accessories-header">

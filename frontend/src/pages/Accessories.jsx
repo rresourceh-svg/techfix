@@ -24,6 +24,7 @@ function Accessories() {
   return (
     <section className="accessories-page">
       <div className="accessories-hero circuit-band">
+        <span className="circuit-band-glow" aria-hidden="true" />
         <CircuitLines />
         <div className="container accessories-hero-inner">
           <Reveal as="span" className="hero-tag">
@@ -81,8 +82,6 @@ function Accessories() {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
                 "Hi TechFix by Mubeen! I'm looking for an accessory — can you help me find the right one?"
               )}`}
-              target="_blank"
-              rel="noopener noreferrer"
               className="btn btn-whatsapp"
             >
               <WhatsAppIcon className="whatsapp-icon" />

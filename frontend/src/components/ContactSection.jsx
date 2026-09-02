@@ -18,7 +18,7 @@ function ContactSection() {
               <WhatsAppIcon className="icon" />
               <div>
                 <p className="label">WhatsApp</p>
-                <a href="https://wa.me/923100045017" target="_blank" rel="noopener noreferrer" className="value">
+                <a href="https://wa.me/923100045017" className="value">
                   +92 310 0045017
                 </a>
               </div>

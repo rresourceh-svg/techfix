@@ -44,6 +44,7 @@ function Services() {
   return (
     <section className="services-page">
       <div className="services-hero circuit-band">
+        <span className="circuit-band-glow" aria-hidden="true" />
         <CircuitLines />
         <div className="container services-hero-inner">
           <Reveal as="div" className="services-page-header">
@@ -106,8 +107,6 @@ function Services() {
             href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
               "Hi TechFix by Mubeen! I need help but I'm not sure which service applies. Can you assist?"
             )}`}
-            target="_blank"
-            rel="noopener noreferrer"
             className="btn btn-whatsapp"
           >
             <WhatsAppIcon className="whatsapp-icon" />

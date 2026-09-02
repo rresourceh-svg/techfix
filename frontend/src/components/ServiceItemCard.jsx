@@ -25,8 +25,6 @@ function ServiceItemCard({ name, price, description, icon, highlightedId }) {
         <span className={`item-card-price ${isQuoted ? "is-quoted" : ""}`}>{price}</span>
         <a
           href={link}
-          target="_blank"
-          rel="noopener noreferrer"
           className="item-card-btn"
           aria-label={`Book ${name} on WhatsApp`}
         >

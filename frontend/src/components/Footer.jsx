@@ -48,7 +48,7 @@ function Footer() {
               <h4>Get in touch</h4>
               <ul>
                 <li>
-                  <a href="https://wa.me/923100045017" target="_blank" rel="noopener noreferrer" className="footer-whatsapp-link">
+                  <a href="https://wa.me/923100045017" className="footer-whatsapp-link">
                     <WhatsAppIcon className="whatsapp-icon" />
                     WhatsApp
                   </a>

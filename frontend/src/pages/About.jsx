@@ -56,6 +56,7 @@ function About() {
   return (
     <section className="about-page">
       <div className="about-hero circuit-band">
+        <span className="circuit-band-glow" aria-hidden="true" />
         <CircuitLines />
         <div className="container about-hero-inner">
           <Reveal as="span" className="hero-tag">
@@ -144,8 +145,6 @@ function About() {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
                 "Hi TechFix by Mubeen! I'd like to ask about a repair."
               )}`}
-              target="_blank"
-              rel="noopener noreferrer"
               className="btn btn-whatsapp"
             >
               <WhatsAppIcon className="whatsapp-icon" />
