@@ -2,9 +2,9 @@ import { FacebookIcon, InstagramIcon, TikTokIcon } from "./icons";
 
 // TODO: swap these placeholder links for your real TechFix handles
 const SOCIALS = {
-  tiktok: "https://www.tiktok.com/@techfix",
-  instagram: "https://www.instagram.com/techfix",
-  facebook: "https://www.facebook.com/techfix",
+  tiktok: "https://www.tiktok.com/@techfixbymubeen",
+  instagram: "https://www.instagram.com/techfix.by.mubeen",
+  facebook: "https://www.facebook.com/Techfix-by-Mubeen",
 };
 
 function CommunitySection() {
