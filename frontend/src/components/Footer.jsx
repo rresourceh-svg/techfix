@@ -5,9 +5,9 @@ import { trackEvent } from "../lib/analytics";
 
 // Keep these in sync with CommunitySection.jsx
 const SOCIALS = {
-  tiktok: "https://www.tiktok.com/@techfix",
-  instagram: "https://www.instagram.com/techfix",
-  facebook: "https://www.facebook.com/techfix",
+  tiktok: "https://www.tiktok.com/@techfixbymubeen",
+  instagram: "https://www.instagram.com/techfix.by.mubeen",
+  facebook: "https://www.facebook.com/Techfix-by-Mubeen",
 };
 
 function Footer() {
