@@ -34,6 +34,7 @@ function Header() {
             <li><NavLink to="/" end onClick={() => setMenuOpen(false)}>Home</NavLink></li>
             <li><NavLink to="/services" onClick={() => setMenuOpen(false)}>Services</NavLink></li>
             <li><NavLink to="/accessories" onClick={() => setMenuOpen(false)}>Accessories</NavLink></li>
+            <li><NavLink to="/knowledge" onClick={() => setMenuOpen(false)}>Knowledge Hub</NavLink></li>
             <li><NavLink to="/about" onClick={() => setMenuOpen(false)}>About</NavLink></li>
             <li><NavLink to="/contact" onClick={() => setMenuOpen(false)}>Contact</NavLink></li>
             <li>

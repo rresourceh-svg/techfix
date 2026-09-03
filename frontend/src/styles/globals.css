@@ -1681,3 +1681,230 @@ img { max-width: 100%; display: block; }
 @media (max-width: 640px) {
   .accessories-hero { padding: 52px 0 44px; }
 }
+
+/* =========================================================
+   Knowledge Hub — listing page (/knowledge)
+   Mirrors the About/Accessories layout rhythm: dark circuit-band hero,
+   then a light content area on the default surface background.
+   ========================================================= */
+.knowledge-page { color: var(--text); }
+
+.knowledge-hero { padding: 88px 0 64px; min-height: 460px; display: flex; align-items: center; }
+.knowledge-hero-inner { position: relative; z-index: 2; width: 100%; }
+.knowledge-hero-copy { max-width: 640px; }
+.knowledge-hero h1 { font-size: clamp(28px, 3.6vw, 42px); margin-bottom: 16px; }
+.knowledge-hero-lead { font-size: 17.5px; color: var(--text-on-dark-muted); margin: 0; max-width: 540px; }
+
+.knowledge-body { max-width: var(--container); padding: 64px 24px 88px; margin: 0 auto; }
+
+.knowledge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.knowledge-illustration-icon-wrap {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #2f8fff, #2bd6e8);
+  border-radius: 18px;
+}
+.knowledge-illustration-icon { width: 34px; height: 34px; color: #06111f; }
+
+/* Article card — used on the Knowledge Hub grid and in Related articles */
+.kb-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.kb-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient);
+  background-size: 200% 100%;
+  animation: cardTopShift 4s ease-in-out infinite;
+  z-index: 1;
+}
+.kb-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 34px rgba(47, 143, 255, 0.18), 0 4px 14px rgba(43, 214, 232, 0.14);
+}
+.kb-card-media { aspect-ratio: 16 / 10; background: var(--panel); overflow: hidden; }
+.kb-card-media-img,
+.kb-card-media-illustration { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.kb-card-body { padding: 20px 22px 24px; display: flex; flex-direction: column; flex-grow: 1; }
+.kb-card-category {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(47, 143, 255, 0.1);
+  color: var(--blue);
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+.kb-card-body h3 { font-size: 18px; margin-bottom: 8px; line-height: 1.35; }
+.kb-card-desc { font-size: 14px; color: var(--text-muted); margin: 0 0 18px; line-height: 1.55; flex-grow: 1; }
+.kb-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+}
+.kb-card-reading-time { font-size: 13px; color: var(--text-muted); }
+.kb-card-link { display: inline-flex; align-items: center; gap: 4px; font-size: 14px; font-weight: 600; color: var(--blue); white-space: nowrap; }
+.kb-card-link-arrow { width: 15px; height: 15px; transition: transform 0.2s ease; }
+.kb-card:hover .kb-card-link-arrow { transform: translateX(3px); }
+
+/* =========================================================
+   Knowledge Hub — article page (/knowledge/:slug)
+   ========================================================= */
+.kb-article-page { padding: 32px 0 88px; color: var(--text); }
+
+.kb-article-breadcrumb-row { max-width: 760px; margin: 0 auto; padding-top: 8px; margin-bottom: 20px; }
+.kb-breadcrumb { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; font-size: 13.5px; color: var(--text-muted); }
+.kb-breadcrumb a { color: var(--text-muted); text-decoration: none; }
+.kb-breadcrumb a:hover { color: var(--blue); }
+.kb-breadcrumb-sep { width: 13px; height: 13px; opacity: 0.5; flex-shrink: 0; }
+.kb-breadcrumb span[aria-current] {
+  color: var(--text);
+  font-weight: 500;
+  max-width: 320px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kb-article-header { max-width: 760px; margin: 0 auto 28px; }
+.kb-article-category { margin-bottom: 14px; }
+.kb-article-header h1 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 14px; }
+.kb-article-intro { font-size: 17.5px; color: var(--text-muted); margin: 0 0 14px; line-height: 1.6; }
+.kb-article-meta { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--text-muted); }
+.kb-article-meta-dot { opacity: 0.5; }
+
+.kb-article-hero { margin-bottom: 40px; }
+.kb-article-hero-img,
+.kb-article-hero-illustration { width: 100%; max-height: 420px; object-fit: cover; border-radius: var(--radius); display: block; }
+
+.kb-article-body { max-width: 760px; margin: 0 auto 48px; font-size: 16px; line-height: 1.75; }
+.kb-article-body h2 { font-size: clamp(21px, 2.6vw, 26px); margin-top: 40px; }
+.kb-article-body p { margin: 0 0 18px; color: var(--text); }
+.kb-article-body ul,
+.kb-article-body ol { margin: 0 0 20px; padding-left: 22px; }
+.kb-article-body li { margin-bottom: 8px; line-height: 1.6; }
+.kb-inline-figure { margin: 28px 0; }
+.kb-inline-img { width: 100%; max-height: 360px; object-fit: cover; border-radius: var(--radius); display: block; }
+.kb-inline-figure figcaption { margin-top: 10px; font-size: 13.5px; color: var(--text-muted, #7a8699); text-align: center; }
+
+/* Warning / caution callout */
+.kb-warning-box {
+  display: flex;
+  gap: 14px;
+  background: rgba(47, 143, 255, 0.06);
+  border: 1px solid rgba(47, 143, 255, 0.18);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  margin: 0 0 24px;
+}
+.kb-warning-box-icon { width: 20px; height: 20px; color: var(--blue); flex-shrink: 0; margin-top: 2px; }
+.kb-warning-box-title { font-weight: 700; margin: 0 0 6px; font-size: 15px; }
+.kb-warning-box-body ul { margin: 0; padding-left: 18px; }
+.kb-warning-box-body p:last-child { margin-bottom: 0; }
+
+/* Numbered step-by-step list */
+.kb-step-list { list-style: none; margin: 0 0 24px; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.kb-step-list-item { display: flex; gap: 14px; align-items: flex-start; }
+.kb-step-list-num {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: #06111f;
+  font-weight: 700;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kb-step-list-text { padding-top: 3px; }
+
+/* "When should you get professional help?" section */
+.kb-pro-help {
+  display: flex;
+  gap: 18px;
+  background: var(--panel);
+  color: var(--text-on-dark);
+  border-radius: var(--radius);
+  padding: 28px 26px;
+  margin: 32px 0;
+}
+.kb-pro-help-icon-wrap {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.kb-pro-help-icon { width: 22px; height: 22px; color: #06111f; }
+.kb-pro-help h2 { margin-top: 0; font-size: 20px; color: #fff; }
+.kb-pro-help-body p { color: var(--text-on-dark-muted); }
+.kb-pro-help-body ul { color: var(--text-on-dark-muted); margin: 0 0 14px; padding-left: 20px; }
+.kb-pro-help-body li { margin-bottom: 6px; }
+.kb-pro-help-body p:last-child { margin-bottom: 0; }
+
+/* Closing TechFix CTA — same trust-based banner language as Services page */
+.kb-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: var(--ink);
+  color: var(--text-on-dark);
+  border-radius: var(--radius);
+  padding: 32px 34px;
+  margin: 0 auto 56px;
+  max-width: 760px;
+}
+.kb-cta h3 { font-size: 20px; margin-bottom: 6px; }
+.kb-cta p { margin: 0; color: var(--text-on-dark-muted); font-size: 14.5px; max-width: 520px; }
+.kb-cta-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* Related articles */
+.kb-related { margin-top: 8px; }
+.kb-related h2 { font-size: clamp(22px, 2.8vw, 28px); margin-bottom: 24px; }
+.kb-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+/* Article-not-found state */
+.kb-not-found { padding: 120px 24px; text-align: center; }
+.kb-not-found h1 { margin-bottom: 12px; }
+.kb-not-found p { color: var(--text-muted); margin-bottom: 24px; }
+
+@media (max-width: 640px) {
+  .knowledge-hero { padding: 52px 0 44px; }
+  .kb-article-page { padding: 24px 0 64px; }
+  .kb-pro-help { flex-direction: column; }
+  .kb-cta { flex-direction: column; align-items: flex-start; }
+}
