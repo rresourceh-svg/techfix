@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://techfix-by-mubeen.vercel.app/sitemap.xml
