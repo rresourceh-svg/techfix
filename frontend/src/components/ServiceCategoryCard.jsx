@@ -18,14 +18,15 @@ function ServiceCategorySection({ id, title, icon, note, items, highlightedId, i
 
       <div className="service-items-grid">
         {items.map((item) => (
-          <ServiceItemCard
-            key={item.name}
-            name={item.name}
-            price={item.price}
-            description={item.description}
-            icon={item.icon}
-            highlightedId={highlightedId}
-          />
+        <ServiceItemCard
+  key={item.name}
+  name={item.name}
+  price={item.price}
+  description={item.description}
+  icon={item.icon}
+  highlightedId={highlightedId}
+  popular={item.name === "Windows + Drivers + Essential Software"}
+/>
         ))}
       </div>
 
